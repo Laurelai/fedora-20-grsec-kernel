@@ -80,3 +80,9 @@ Replace the kernel.spec and config-local with ones provided in this repo.
 Build witht he following command as a non root user!.
 
 $ rpmbuild -bb --without debug --without debuginfo --without extra --without perf --without tools kernel.spec
+
+
+
+
+References: http://xn--thibaud-dya.fr/fedora_grsec.html 
+            https://fedoraproject.org/wiki/Building_a_custom_kernel
