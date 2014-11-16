@@ -2379,6 +2379,9 @@ fi
 #                 ||----w |
 #                 ||     ||
 %changelog
+* Sat Nov 15 2014 Laurelai Bailey <Laurelaistorm@gmail.com> - 3.17.2.200-grsec
+- Commented out various patches to allow grsec to compile and set for x64 build
+
 * Tue Nov 04 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.2-200
 - Linux v3.17.2
 
