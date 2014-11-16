@@ -14,7 +14,7 @@ yum -y update
 
 yum install rpmdevtools yum-utils gcc-plugin-devel pesign ncurses-devel qt3-devel libXi-devel gcc-c++
 
-yum groupinstall "Development Tools"
+yum groupinstall "Development Tools"
 
 yum-builddep kernel
 
@@ -84,7 +84,9 @@ $ rpmbuild -bb --without debug --without debuginfo --without extra --without per
 Once completed run AS ROOT.
 
 rpmdev-setuptree
+
 Copy paxctl.spec to /root/rpmbuild/SPECS
+
 Download paxctl-0.9.tar.gz and paxtest-0.9.11.tar.gz from trusted sources and place them in /root/rpmbuild/SOURCES
 
 Then run as root rpmbuild -bb paxctl.spec
