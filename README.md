@@ -73,6 +73,10 @@ index 0000000..7cd6065
 @@ -0,0 +1 @@
 +-grsec
 
-Build witht he following command.
+
+
+Replace the kernel.spec and config-local with ones provided in this repo.
+
+Build witht he following command as a non root user!.
 
 $ rpmbuild -bb --without debug --without debuginfo --without extra --without perf --without tools kernel.spec
