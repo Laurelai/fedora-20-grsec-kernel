@@ -81,8 +81,16 @@ Build witht he following command as a non root user!.
 
 $ rpmbuild -bb --without debug --without debuginfo --without extra --without perf --without tools kernel.spec
 
+Once completed run AS ROOT.
 
+rpmdev-setuptree
+Copy paxctl.spec to /root/rpmbuild/SPECS
+Download paxctl-0.9.tar.gz and paxtest-0.9.11.tar.gz from trusted sources and place them in /root/rpmbuild/SOURCES
 
+Then run as root rpmbuild -bb paxctl.spec
+install paxctl
+install grsec kernel.
+use paxctl to ensure your programs can run.
 
 References: http://xn--thibaud-dya.fr/fedora_grsec.html 
             https://fedoraproject.org/wiki/Building_a_custom_kernel
