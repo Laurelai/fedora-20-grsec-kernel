@@ -1,6 +1,6 @@
 paxcommon.sh needs to be run as root.
 
-Covers firefox, chrome, skype, midori, thunderbird, abrt, opera, compiz and libre office.
+Covers firefox, chrome, skype, midori, thunderbird, abrt, opera, compiz, wine and libre office.
 
 paxsteam.sh needs to be run as a regular user if steam is installed. This only gets the steam client running.
 Games will have to be done manually for now.
