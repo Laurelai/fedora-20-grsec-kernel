@@ -18,3 +18,4 @@ cp /usr/bin/python2.7 /usr/bin/python2.7.tmp
 paxctl -cm /usr/bin/python2.7.tmp
 mv -f /usr/bin/python2.7.tmp /usr/bin/python2.7
 paxctl -cm /usr/bin/wine-preloader
+paxctl -cm /usr/bin/wine
