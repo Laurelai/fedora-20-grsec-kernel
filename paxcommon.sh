@@ -12,6 +12,7 @@ paxctl -cm /usr/lib*/opera/opera
 paxctl -cm /usr/lib*/opera/pluginwrapper/operapluginwrapper-native
 paxctl -cm /usr/lib*/thunderbird/thunderbird
 paxctl -cm /usr/lib*/thunderbird/plugin-container
+setfattr -n user.pax.flags -v "me" /usr/bin/compiz
 setfattr -n user.pax.flags -v "me" /usr/bin/midori 
 cp /usr/bin/python2.7 /usr/bin/python2.7.tmp
 paxctl -cm /usr/bin/python2.7.tmp
