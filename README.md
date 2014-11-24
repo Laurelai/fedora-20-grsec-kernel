@@ -2,7 +2,7 @@ fedora-20-grsec-kernel
 ======================
 
 
-Current version 3.17.2-200.grsec.fc20.x86_64
+Current version 3.17.3-200.grsec.fc20.x86_64
 
 
 Instructions.
