@@ -74,7 +74,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 2
+%define stable_update 3
 # Is it a -stable RC?
 %define stable_rc 0
 # Set rpm version accordingly
@@ -640,9 +640,9 @@ Patch800: crash-driver.patch
 # secure boot
 #Patch1000: Add-secure_modules-call.patch
 #Patch1001: PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
-# Patch1002: x86-Lock-down-IO-port-access-when-module-security-is.patch
-# Patch1003: ACPI-Limit-access-to-custom_method.patch
-# Patch1004: asus-wmi-Restrict-debugfs-interface-when-module-load.patch
+#Patch1002: x86-Lock-down-IO-port-access-when-module-security-is.patch
+#Patch1003: ACPI-Limit-access-to-custom_method.patch
+#Patch1004: asus-wmi-Restrict-debugfs-interface-when-module-load.patch
 #Patch1005: Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
 #Patch1006: acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
 #Patch1007: kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
@@ -668,6 +668,7 @@ Patch800: crash-driver.patch
 # nouveau + drm fixes
 # intel drm is all merged upstream
 Patch1826: drm-i915-hush-check-crtc-state.patch
+Patch1827: drm-i915-Don-t-WARN-in-edp_panel_vdd_off.patch
 
 # Quiet boot fixes
 
@@ -676,7 +677,7 @@ Patch1826: drm-i915-hush-check-crtc-state.patch
 # NFSv4
 
 # patches headed upstream
-#Patch12016: disable-i8042-check-on-apple-mac.patch
+# Patch12016: disable-i8042-check-on-apple-mac.patch
 
 Patch14000: hibernate-freeze-filesystems.patch
 
@@ -728,66 +729,25 @@ Patch26016: HID-wacom-Add-support-for-the-Cintiq-Companion.patch
 Patch26019: psmouse-Add-psmouse_matches_pnp_id-helper-function.patch
 Patch26020: psmouse-Add-support-for-detecting-FocalTech-PS-2-tou.patch
 
-#rhbz 1138759
-Patch26021: drm-vmwgfx-Fix-drm.h-include.patch
-
 #rhbz 1145318
 Patch26029: KEYS-Reinstate-EPERM-for-a-key-type-name-beginning-w.patch
 
 Patch26030: GFS2-Make-rename-not-save-dirent-location.patch
 
-#CVE-2014-7970 rhbz 1151095 1151484
-# Patch26032: mnt-Prevent-pivot_root-from-creating-a-loop-in-the-m.patch
-
-#rhbz 1149509
-Patch26034: USB-core-add-device-qualifier-quirk.patch
-Patch26035: USB-quirks-enable-device-qualifier-quirk-for-Elan-To.patch
-Patch26036: USB-quirks-enable-device-qualifier-quirk-for-another.patch
-Patch26037: HID-usbhid-add-always-poll-quirk.patch
-Patch26038: HID-usbhid-enable-always-poll-quirk-for-Elan-Touchsc.patch
-Patch26039: HID-usbhid-always-poll-quirk-for-Elan-Touchscreen-00.patch
-Patch26040: USB-quirks-device-qualifier-quirk-for-another-Elan-t.patch
-Patch26041: HID-usbhid-always-poll-quirk-for-Elan-Touchscreen-01.patch
-
-#CVE-2014-8086 rhbz 1151353 1152608
-Patch26056: ext4-fix-race-between-write-and-fcntl-F_SETFL.patch
-
 #rhbz 1089731
 Patch26058: asus-nb-wmi-Add-wapf4-quirk-for-the-X550VB.patch
 
-#rhbz 1153381
-Patch26059: Input-synaptics-gate-forcepad-support-by-DMI-check.patch
-
 #CVE-2014-3688 rhbz 1155745 1155751
-Patch26061: net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
+# Patch26061: net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
 
 #CVE-2014-3687 rhbz 1155731 1155738
-Patch26062: net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
+# Patch26062: net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
 
 #CVE-2014-3673 rhbz 1147850 1155727
-Patch26063: net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
+# Patch26063: net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
 
 #rhbz 1111138
 Patch26064: i8042-Add-notimeout-quirk-for-Fujitsu-Lifebook-A544-.patch
-
-# CVE-2014-3610 kvm: noncanonical MSR writes (rhbz 1144883 1156543)
-# CVE-2014-3611 kvm: PIT timer race condition (rhbz 1144878 1156537)
-# CVE-2014-3646 kvm: vmx: invvpid vm exit not handled (rhbz 1144825 1156534)
-# CVE-2014-8369 kvm: excessive pages un-pinning in kvm_iommu_map error path (rhbz 1156518 1156522)
-# CVE-2014-8480 CVE-2014-8481 kvm: NULL pointer dereference during rip relative instruction emulation (rhbz 1156615 1156616)
-# Patch26070: KVM-x86-Check-non-canonical-addresses-upon-WRMSR.patch
-#Patch26071: KVM-x86-Prevent-host-from-panicking-on-shared-MSR-wr.patch
-#Patch26072: KVM-x86-Improve-thread-safety-in-pit.patch
-#Patch26073: KVM-x86-Fix-wrong-masking-on-relative-jump-call.patch
-#Patch26074: KVM-x86-Emulator-fixes-for-eip-canonical-checks-on-n.patch
-#Patch26075: KVM-x86-Handle-errors-when-RIP-is-set-during-far-jum.patch
-#Patch26076: kvm-vmx-handle-invvpid-vm-exit-gracefully.patch
-#Patch26077: kvm-x86-don-t-kill-guest-on-unknown-exit-reason.patch
-#Patch26078: KVM-x86-Decoding-guest-instructions-which-cross-page.patch
-#Patch26079: KVM-emulate-avoid-accessing-NULL-ctxt-memopp.patch
-#Patch26080: KVM-x86-Emulator-does-not-decode-clflush-well.patch
-#Patch26081: KVM-x86-PREFETCH-and-HINT_NOP-should-have-SrcMem-fla.patch
-#Patch26082: kvm-fix-excessive-pages-un-pinning-in-kvm_iommu_map-.patch
 
 #rhbz 1157327
 Patch26083: quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
@@ -795,9 +755,24 @@ Patch26083: quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
 #rhbz 1159592
 Patch26084: x86-microcode-AMD-Fix-early-ucode-loading-on-32-bit.patch
 
+#rhbz 1161805
+Patch26066: ahci-disable-MSI-instead-of-NCQ-on-Samsung-pci-e-SSD.patch
+
+#CVE-2014-7841 rhbz 1163087 1163095
+# Patch26067: net-sctp-fix-NULL-pointer-dereference-in-af-from_add.patch
+
+#CVE-2014-7842 rhbz 1163762 1163767
+# Patch26068: KVM-x86-Don-t-report-guest-userspace-emulation-error.patch
+
+#CVE-2014-7843 rhbz 1163744 1163745
+#Patch26069: arm64-__clear_user-handle-exceptions-on-strb.patch
+
+#rhbz 1135338
+Patch26090: HID-add-support-for-MS-Surface-Pro-3-Type-Cover.patch
+
 # git clone ssh://git.fedorahosted.org/git/kernel-arm64.git, git diff master...devel
-# Patch30000: kernel-arm64.patch
-Patch30001: grsecurity-3.0-3.17.2-201411091054.patch
+Patch30000: kernel-arm64.patch
+Patch30001: grsecurity-3.0-3.17.3-201411150027.patch
 # END OF PATCH DEFINITIONS
 
 %endif
@@ -838,7 +813,7 @@ glibc package.
 %package bootwrapper
 Summary: Boot wrapper files for generating combined kernel + initrd images
 Group: Development/System
-Requires: gzip binutils paxctl
+Requires: gzip binutils
 %description bootwrapper
 Kernel-bootwrapper contains the wrapper code which makes bootable "zImage"
 files combining both kernel and initial ramdisk.
@@ -1425,9 +1400,9 @@ ApplyPatch crash-driver.patch
 # secure boot
 #ApplyPatch Add-secure_modules-call.patch
 #ApplyPatch PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
-# ApplyPatch x86-Lock-down-IO-port-access-when-module-security-is.patch
-# ApplyPatch ACPI-Limit-access-to-custom_method.patch
-# ApplyPatch asus-wmi-Restrict-debugfs-interface-when-module-load.patch
+#ApplyPatch x86-Lock-down-IO-port-access-when-module-security-is.patch
+#ApplyPatch ACPI-Limit-access-to-custom_method.patch
+#ApplyPatch asus-wmi-Restrict-debugfs-interface-when-module-load.patch
 #ApplyPatch Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
 #ApplyPatch acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
 #ApplyPatch kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
@@ -1454,11 +1429,12 @@ ApplyPatch crash-driver.patch
 
 # Intel DRM
 ApplyPatch drm-i915-hush-check-crtc-state.patch
+ApplyPatch drm-i915-Don-t-WARN-in-edp_panel_vdd_off.patch
 
 # Radeon DRM
 
 # Patches headed upstream
-#ApplyPatch disable-i8042-check-on-apple-mac.patch
+# ApplyPatch disable-i8042-check-on-apple-mac.patch
 
 # FIXME: REBASE
 #ApplyPatch hibernate-freeze-filesystems.patch
@@ -1494,66 +1470,26 @@ ApplyPatch HID-wacom-Add-support-for-the-Cintiq-Companion.patch
 ApplyPatch psmouse-Add-psmouse_matches_pnp_id-helper-function.patch
 ApplyPatch psmouse-Add-support-for-detecting-FocalTech-PS-2-tou.patch
 
-#rhbz 1138759
-ApplyPatch drm-vmwgfx-Fix-drm.h-include.patch
-
 #rhbz 1145318
 ApplyPatch KEYS-Reinstate-EPERM-for-a-key-type-name-beginning-w.patch
 
 ApplyPatch GFS2-Make-rename-not-save-dirent-location.patch
 
-#CVE-2014-7970 rhbz 1151095 1151484
-# ApplyPatch mnt-Prevent-pivot_root-from-creating-a-loop-in-the-m.patch
-
-#rhbz 1149509
-ApplyPatch USB-core-add-device-qualifier-quirk.patch
-ApplyPatch USB-quirks-enable-device-qualifier-quirk-for-Elan-To.patch
-ApplyPatch USB-quirks-enable-device-qualifier-quirk-for-another.patch
-ApplyPatch HID-usbhid-add-always-poll-quirk.patch
-ApplyPatch HID-usbhid-enable-always-poll-quirk-for-Elan-Touchsc.patch
-ApplyPatch HID-usbhid-always-poll-quirk-for-Elan-Touchscreen-00.patch
-ApplyPatch USB-quirks-device-qualifier-quirk-for-another-Elan-t.patch
-ApplyPatch HID-usbhid-always-poll-quirk-for-Elan-Touchscreen-01.patch
-
-#CVE-2014-8086 rhbz 1151353 1152608
-ApplyPatch ext4-fix-race-between-write-and-fcntl-F_SETFL.patch
 
 #rhbz 1089731
 ApplyPatch asus-nb-wmi-Add-wapf4-quirk-for-the-X550VB.patch
 
-#rhbz 1153381
-ApplyPatch Input-synaptics-gate-forcepad-support-by-DMI-check.patch
-
 #CVE-2014-3688 rhbz 1155745 1155751
-ApplyPatch net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
+# ApplyPatch net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
 
 #CVE-2014-3687 rhbz 1155731 1155738
-ApplyPatch net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
+# ApplyPatch net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
 
 #CVE-2014-3673 rhbz 1147850 1155727
-ApplyPatch net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
+# ApplyPatch net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
 
 #rhbz 1111138
 ApplyPatch i8042-Add-notimeout-quirk-for-Fujitsu-Lifebook-A544-.patch
-
-# CVE-2014-3610 kvm: noncanonical MSR writes (rhbz 1144883 1156543)
-# CVE-2014-3611 kvm: PIT timer race condition (rhbz 1144878 1156537)
-# CVE-2014-3646 kvm: vmx: invvpid vm exit not handled (rhbz 1144825 1156534)
-# CVE-2014-8369 kvm: excessive pages un-pinning in kvm_iommu_map error path (rhbz 1156518 1156522)
-# CVE-2014-8480 CVE-2014-8481 kvm: NULL pointer dereference during rip relative instruction emulation (rhbz 1156615 1156616)
-# ApplyPatch KVM-x86-Check-non-canonical-addresses-upon-WRMSR.patch
-#ApplyPatch KVM-x86-Prevent-host-from-panicking-on-shared-MSR-wr.patch
-#ApplyPatch KVM-x86-Improve-thread-safety-in-pit.patch
-#ApplyPatch KVM-x86-Fix-wrong-masking-on-relative-jump-call.patch
-#ApplyPatch KVM-x86-Emulator-fixes-for-eip-canonical-checks-on-n.patch
-#ApplyPatch KVM-x86-Handle-errors-when-RIP-is-set-during-far-jum.patch
-#ApplyPatch kvm-vmx-handle-invvpid-vm-exit-gracefully.patch
-#ApplyPatch kvm-x86-don-t-kill-guest-on-unknown-exit-reason.patch
-#ApplyPatch KVM-x86-Decoding-guest-instructions-which-cross-page.patch
-#ApplyPatch KVM-emulate-avoid-accessing-NULL-ctxt-memopp.patch
-#ApplyPatch KVM-x86-Emulator-does-not-decode-clflush-well.patch
-#ApplyPatch KVM-x86-PREFETCH-and-HINT_NOP-should-have-SrcMem-fla.patch
-#ApplyPatch kvm-fix-excessive-pages-un-pinning-in-kvm_iommu_map-.patch
 
 #rhbz 1157327
 ApplyPatch quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
@@ -1561,13 +1497,28 @@ ApplyPatch quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
 #rhbz 1159592
 ApplyPatch x86-microcode-AMD-Fix-early-ucode-loading-on-32-bit.patch
 
+#rhbz 1161805
+ApplyPatch ahci-disable-MSI-instead-of-NCQ-on-Samsung-pci-e-SSD.patch
+
+#CVE-2014-7841 rhbz 1163087 1163095
+# ApplyPatch net-sctp-fix-NULL-pointer-dereference-in-af-from_add.patch
+
+#CVE-2014-7842 rhbz 1163762 1163767
+# ApplyPatch KVM-x86-Don-t-report-guest-userspace-emulation-error.patch
+
+#CVE-2014-7843 rhbz 1163744 1163745
+# ApplyPatch arm64-__clear_user-handle-exceptions-on-strb.patch
+
+#rhbz 1135338
+ApplyPatch HID-add-support-for-MS-Surface-Pro-3-Type-Cover.patch
+
 %if 0%{?aarch64patches}
-# ApplyPatch kernel-arm64.patch
+ApplyPatch kernel-arm64.patch
 %ifnarch aarch64 # this is stupid, but i want to notice before secondary koji does.
-# ApplyPatch kernel-arm64.patch -R
+ApplyPatch kernel-arm64.patch -R
 %endif
 %endif
-ApplyPatch grsecurity-3.0-3.17.2-201411091054.patch
+ApplyPatch grsecurity-3.0-3.17.3-201411150027.patch
 # END OF PATCH APPLICATIONS
 
 %endif
@@ -2379,8 +2330,28 @@ fi
 #                 ||----w |
 #                 ||     ||
 %changelog
-* Sat Nov 15 2014 Laurelai Bailey <Laurelaistorm@gmail.com> - 3.17.2.200-grsec
-- Commented out various patches to allow grsec to compile and set for x64 build
+* Fri Nov 14 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.3-200
+- Linux v3.17.3
+
+* Fri Nov 14 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Quiet WARN in i915 edp VDD handling
+- Enable I40EVF driver (rhbz 1164029)
+
+* Thu Nov 13 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Add patch for MS Surface Pro 3 Type Cover (rhbz 1135338)
+- CVE-2014-7843 aarch64: copying from /dev/zero causes local DoS (rhbz 1163744 1163745)
+- CVE-2014-7842 kvm: reporting emulation failures to userspace (rhbz 1163762 1163767)
+
+* Wed Nov 12 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- CVE-2014-7841 sctp: NULL ptr deref on malformed packet (rhbz 1163087 1163095)
+
+* Mon Nov 10 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Fix Samsung pci-e SSD handling on some macbooks (rhbz 1161805)
+- Add patch to fix crypto allocation issues on PAGE_SIZE > 4k
+
+* Fri Nov 07 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Fix iwlwifi oops (rhbz 1151836)
+- CVE-2014-7826 CVE-2014-7825 insufficient syscall number validation in perf and ftrace subsystems (rhbz 1161565 1161572)
 
 * Tue Nov 04 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.2-200
 - Linux v3.17.2
