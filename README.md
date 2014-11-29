@@ -4,6 +4,19 @@ fedora-20-grsec-kernel
 
 Current version 3.17.3-200.grsec.fc20.x86_64
 
+If you wish to install my compiled rpm (not reccomended) import my rpm signing key.
+
+Issue the following commands as root.
+
+wget http://laurelai.info/Laurelai/LAURELAI-GPG-KEY.public
+
+rpm --import LAURELAI-GPG-KEY.public
+
+wget -O /etc/yum.repos.d/grsecurity.repo http://laurelai.info/Laurelai/grsecurity.repo
+
+yum -y update
+
+You use this software *as is*. However i will try to assist anyone using it
 
 Instructions.
 
