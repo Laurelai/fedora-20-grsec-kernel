@@ -18,7 +18,7 @@ yum -y update
 
 You use this software *as is*. However i will try to assist anyone using it
 
-Instructions.
+Compile Instructions.
 
 AS ROOT.
 yum -y update
