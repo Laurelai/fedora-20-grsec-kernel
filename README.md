@@ -2,7 +2,7 @@ fedora-20-grsec-kernel
 ======================
 
 
-Current version 3.17.3-200.grsec.fc20.x86_64
+Current version 3.17.4-200.grsec.fc20.x86_64
 
 If you wish to install my compiled rpm (not reccomended) import my rpm signing key.
 
@@ -34,14 +34,14 @@ yum-builddep kernel
 AS REGULAR NON ROOT USER
 rpmdev-setuptree
 yumdownloader --source kernel
-rpm -Uvh kernel-3.17.3-200.fc20.src.rpm
+rpm -Uvh kernel-3.17.4-200.fc20.src.rpm
 
-Aquire grsecurity-3.0-3.17.3-201411150027.patch from a trusted source!
+Aquire grsecurity-3.0-3.17.4-201412040017.patch from a trusted source!
 
 Import spenders key! http://en.wikibooks.org/wiki/Grsecurity/Obtaining_grsecurity#Verifying_the_Downloads
 
 TEST THE PATCH
-gpg --verify grsecurity-3.0-3.17.3-201411091054.patch.sig
+gpg --verify grsecurity-3.0-3.17.4-201412040017.patch.sig
 
 Open patch in your favorite text editor and remove the following block of code.
 
