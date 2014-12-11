@@ -74,7 +74,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 3
+%define stable_update 4
 # Is it a -stable RC?
 %define stable_rc 0
 # Set rpm version accordingly
@@ -638,28 +638,28 @@ Patch800: crash-driver.patch
 # crypto/
 
 # secure boot
-#Patch1000: Add-secure_modules-call.patch
-#Patch1001: PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
-#Patch1002: x86-Lock-down-IO-port-access-when-module-security-is.patch
-#Patch1003: ACPI-Limit-access-to-custom_method.patch
-#Patch1004: asus-wmi-Restrict-debugfs-interface-when-module-load.patch
-#Patch1005: Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
-#Patch1006: acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
-#Patch1007: kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
-#Patch1008: x86-Restrict-MSR-access-when-module-loading-is-restr.patch
-#Patch1009: Add-option-to-automatically-enforce-module-signature.patch
-#Patch1010: efi-Disable-secure-boot-if-shim-is-in-insecure-mode.patch
-#Patch1011: efi-Make-EFI_SECURE_BOOT_SIG_ENFORCE-depend-on-EFI.patch
-#Patch1012: efi-Add-EFI_SECURE_BOOT-bit.patch
-#Patch1013: hibernate-Disable-in-a-signed-modules-environment.patch
+Patch1000: Add-secure_modules-call.patch
+Patch1001: PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
+# Patch1002: x86-Lock-down-IO-port-access-when-module-security-is.patch
+# Patch1003: ACPI-Limit-access-to-custom_method.patch
+# Patch1004: asus-wmi-Restrict-debugfs-interface-when-module-load.patch
+# Patch1005: Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
+Patch1006: acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
+Patch1007: kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
+Patch1008: x86-Restrict-MSR-access-when-module-loading-is-restr.patch
+Patch1009: Add-option-to-automatically-enforce-module-signature.patch
+Patch1010: efi-Disable-secure-boot-if-shim-is-in-insecure-mode.patch
+Patch1011: efi-Make-EFI_SECURE_BOOT_SIG_ENFORCE-depend-on-EFI.patch
+Patch1012: efi-Add-EFI_SECURE_BOOT-bit.patch
+Patch1013: hibernate-Disable-in-a-signed-modules-environment.patch
 
-#Patch1014: Add-EFI-signature-data-types.patch
-#Patch1015: Add-an-EFI-signature-blob-parser-and-key-loader.patch
-#Patch1016: KEYS-Add-a-system-blacklist-keyring.patch
-#Patch1017: MODSIGN-Import-certificates-from-UEFI-Secure-Boot.patch
-#Patch1018: MODSIGN-Support-not-importing-certs-from-db.patch
+Patch1014: Add-EFI-signature-data-types.patch
+Patch1015: Add-an-EFI-signature-blob-parser-and-key-loader.patch
+Patch1016: KEYS-Add-a-system-blacklist-keyring.patch
+Patch1017: MODSIGN-Import-certificates-from-UEFI-Secure-Boot.patch
+Patch1018: MODSIGN-Support-not-importing-certs-from-db.patch
 
-#Patch1019: Add-sysrq-option-to-disable-secure-boot-mode.patch
+Patch1019: Add-sysrq-option-to-disable-secure-boot-mode.patch
 
 # virt + ksm patches
 
@@ -729,50 +729,15 @@ Patch26016: HID-wacom-Add-support-for-the-Cintiq-Companion.patch
 Patch26019: psmouse-Add-psmouse_matches_pnp_id-helper-function.patch
 Patch26020: psmouse-Add-support-for-detecting-FocalTech-PS-2-tou.patch
 
-#rhbz 1145318
-Patch26029: KEYS-Reinstate-EPERM-for-a-key-type-name-beginning-w.patch
-
-Patch26030: GFS2-Make-rename-not-save-dirent-location.patch
-
 #rhbz 1089731
 Patch26058: asus-nb-wmi-Add-wapf4-quirk-for-the-X550VB.patch
-
-#CVE-2014-3688 rhbz 1155745 1155751
-# Patch26061: net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
-
-#CVE-2014-3687 rhbz 1155731 1155738
-# Patch26062: net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
-
-#CVE-2014-3673 rhbz 1147850 1155727
-# Patch26063: net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
-
-#rhbz 1111138
-Patch26064: i8042-Add-notimeout-quirk-for-Fujitsu-Lifebook-A544-.patch
-
-#rhbz 1157327
-Patch26083: quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
-
-#rhbz 1159592
-Patch26084: x86-microcode-AMD-Fix-early-ucode-loading-on-32-bit.patch
-
-#rhbz 1161805
-Patch26066: ahci-disable-MSI-instead-of-NCQ-on-Samsung-pci-e-SSD.patch
-
-#CVE-2014-7841 rhbz 1163087 1163095
-# Patch26067: net-sctp-fix-NULL-pointer-dereference-in-af-from_add.patch
-
-#CVE-2014-7842 rhbz 1163762 1163767
-# Patch26068: KVM-x86-Don-t-report-guest-userspace-emulation-error.patch
-
-#CVE-2014-7843 rhbz 1163744 1163745
-#Patch26069: arm64-__clear_user-handle-exceptions-on-strb.patch
 
 #rhbz 1135338
 Patch26090: HID-add-support-for-MS-Surface-Pro-3-Type-Cover.patch
 
 # git clone ssh://git.fedorahosted.org/git/kernel-arm64.git, git diff master...devel
 Patch30000: kernel-arm64.patch
-Patch30001: grsecurity-3.0-3.17.3-201411150027.patch
+Patch30001: grsecurity-3.0-3.17.4-201412040017.patch
 # END OF PATCH DEFINITIONS
 
 %endif
@@ -1398,28 +1363,28 @@ ApplyPatch crash-driver.patch
 # crypto/
 
 # secure boot
-#ApplyPatch Add-secure_modules-call.patch
-#ApplyPatch PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
-#ApplyPatch x86-Lock-down-IO-port-access-when-module-security-is.patch
-#ApplyPatch ACPI-Limit-access-to-custom_method.patch
-#ApplyPatch asus-wmi-Restrict-debugfs-interface-when-module-load.patch
-#ApplyPatch Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
-#ApplyPatch acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
-#ApplyPatch kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
-#ApplyPatch x86-Restrict-MSR-access-when-module-loading-is-restr.patch
-#ApplyPatch Add-option-to-automatically-enforce-module-signature.patch
-#ApplyPatch efi-Disable-secure-boot-if-shim-is-in-insecure-mode.patch
-#ApplyPatch efi-Make-EFI_SECURE_BOOT_SIG_ENFORCE-depend-on-EFI.patch
-#ApplyPatch efi-Add-EFI_SECURE_BOOT-bit.patch
-#ApplyPatch hibernate-Disable-in-a-signed-modules-environment.patch
+ApplyPatch Add-secure_modules-call.patch
+ApplyPatch PCI-Lock-down-BAR-access-when-module-security-is-ena.patch
+# ApplyPatch x86-Lock-down-IO-port-access-when-module-security-is.patch
+# ApplyPatch ACPI-Limit-access-to-custom_method.patch
+# ApplyPatch asus-wmi-Restrict-debugfs-interface-when-module-load.patch
+# ApplyPatch Restrict-dev-mem-and-dev-kmem-when-module-loading-is.patch
+ApplyPatch acpi-Ignore-acpi_rsdp-kernel-parameter-when-module-l.patch
+ApplyPatch kexec-Disable-at-runtime-if-the-kernel-enforces-modu.patch
+ApplyPatch x86-Restrict-MSR-access-when-module-loading-is-restr.patch
+ApplyPatch Add-option-to-automatically-enforce-module-signature.patch
+ApplyPatch efi-Disable-secure-boot-if-shim-is-in-insecure-mode.patch
+ApplyPatch efi-Make-EFI_SECURE_BOOT_SIG_ENFORCE-depend-on-EFI.patch
+ApplyPatch efi-Add-EFI_SECURE_BOOT-bit.patch
+ApplyPatch hibernate-Disable-in-a-signed-modules-environment.patch
 
-#ApplyPatch Add-EFI-signature-data-types.patch
-#ApplyPatch Add-an-EFI-signature-blob-parser-and-key-loader.patch
-#ApplyPatch KEYS-Add-a-system-blacklist-keyring.patch
-#ApplyPatch MODSIGN-Import-certificates-from-UEFI-Secure-Boot.patch
-#ApplyPatch MODSIGN-Support-not-importing-certs-from-db.patch
+ApplyPatch Add-EFI-signature-data-types.patch
+ApplyPatch Add-an-EFI-signature-blob-parser-and-key-loader.patch
+ApplyPatch KEYS-Add-a-system-blacklist-keyring.patch
+ApplyPatch MODSIGN-Import-certificates-from-UEFI-Secure-Boot.patch
+ApplyPatch MODSIGN-Support-not-importing-certs-from-db.patch
 
-#ApplyPatch Add-sysrq-option-to-disable-secure-boot-mode.patch
+ApplyPatch Add-sysrq-option-to-disable-secure-boot-mode.patch
 
 # Assorted Virt Fixes
 
@@ -1470,44 +1435,8 @@ ApplyPatch HID-wacom-Add-support-for-the-Cintiq-Companion.patch
 ApplyPatch psmouse-Add-psmouse_matches_pnp_id-helper-function.patch
 ApplyPatch psmouse-Add-support-for-detecting-FocalTech-PS-2-tou.patch
 
-#rhbz 1145318
-ApplyPatch KEYS-Reinstate-EPERM-for-a-key-type-name-beginning-w.patch
-
-ApplyPatch GFS2-Make-rename-not-save-dirent-location.patch
-
-
 #rhbz 1089731
 ApplyPatch asus-nb-wmi-Add-wapf4-quirk-for-the-X550VB.patch
-
-#CVE-2014-3688 rhbz 1155745 1155751
-# ApplyPatch net-sctp-fix-skb_over_panic-when-receiving-malformed.patch
-
-#CVE-2014-3687 rhbz 1155731 1155738
-# ApplyPatch net-sctp-fix-panic-on-duplicate-ASCONF-chunks.patch
-
-#CVE-2014-3673 rhbz 1147850 1155727
-# ApplyPatch net-sctp-fix-remote-memory-pressure-from-excessive-q.patch
-
-#rhbz 1111138
-ApplyPatch i8042-Add-notimeout-quirk-for-Fujitsu-Lifebook-A544-.patch
-
-#rhbz 1157327
-ApplyPatch quirk-for-Lenovo-Yoga-3-no-rfkill-switch.patch
-
-#rhbz 1159592
-ApplyPatch x86-microcode-AMD-Fix-early-ucode-loading-on-32-bit.patch
-
-#rhbz 1161805
-ApplyPatch ahci-disable-MSI-instead-of-NCQ-on-Samsung-pci-e-SSD.patch
-
-#CVE-2014-7841 rhbz 1163087 1163095
-# ApplyPatch net-sctp-fix-NULL-pointer-dereference-in-af-from_add.patch
-
-#CVE-2014-7842 rhbz 1163762 1163767
-# ApplyPatch KVM-x86-Don-t-report-guest-userspace-emulation-error.patch
-
-#CVE-2014-7843 rhbz 1163744 1163745
-# ApplyPatch arm64-__clear_user-handle-exceptions-on-strb.patch
 
 #rhbz 1135338
 ApplyPatch HID-add-support-for-MS-Surface-Pro-3-Type-Cover.patch
@@ -1518,7 +1447,7 @@ ApplyPatch kernel-arm64.patch
 ApplyPatch kernel-arm64.patch -R
 %endif
 %endif
-ApplyPatch grsecurity-3.0-3.17.3-201411150027.patch
+ApplyPatch grsecurity-3.0-3.17.4-201412040017.patch
 # END OF PATCH APPLICATIONS
 
 %endif
@@ -2330,6 +2259,16 @@ fi
 #                 ||----w |
 #                 ||     ||
 %changelog
+* Fri Nov 21 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.4-200
+- Linux v3.17.4
+- disable early microcode load (rhbz 1163520)
+
+* Fri Nov 21 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Move TPM drivers to main kernel package (rhbz 1164937)
+
+* Wed Nov 19 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Disable SERIAL_8250 on s390x (rhbz 1158848)
+
 * Fri Nov 14 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.3-200
 - Linux v3.17.3
 
