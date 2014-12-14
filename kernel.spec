@@ -74,7 +74,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 4
+%define stable_update 6
 # Is it a -stable RC?
 %define stable_rc 0
 # Set rpm version accordingly
@@ -737,7 +737,7 @@ Patch26090: HID-add-support-for-MS-Surface-Pro-3-Type-Cover.patch
 
 # git clone ssh://git.fedorahosted.org/git/kernel-arm64.git, git diff master...devel
 Patch30000: kernel-arm64.patch
-Patch30001: grsecurity-3.0-3.17.4-201412040017.patch
+Patch30001: grsecurity-3.0-3.17.6-201412071639.patch
 # END OF PATCH DEFINITIONS
 
 %endif
@@ -1447,7 +1447,7 @@ ApplyPatch kernel-arm64.patch
 ApplyPatch kernel-arm64.patch -R
 %endif
 %endif
-ApplyPatch grsecurity-3.0-3.17.4-201412040017.patch
+ApplyPatch grsecurity-3.0-3.17.6-201412071639.patch
 # END OF PATCH APPLICATIONS
 
 %endif
@@ -2259,6 +2259,22 @@ fi
 #                 ||----w |
 #                 ||     ||
 %changelog
+* Mon Dec 08 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.6-200
+- Linux v3.17.6
+
+* Thu Dec 04 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- CVE-2014-9090 local DoS via do_double_fault due to improper SS faults (rhbz 1170691)
+
+* Mon Dec 01 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Add patch to quiet i915 driver on long hdps
+- Add patch to fix oops when using xpad (rhbz 1094048)
+
+* Thu Nov 27 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Add patch to fix radeon HDMI issues (rhbz 1167511)
+
+* Mon Nov 24 2014 Josh Boyer <jwboyer@fedoraproject.org>
+- Add quirk for Laser Mouse 6000 (rhbz 1165206)
+
 * Fri Nov 21 2014 Justin M. Forbes <jforbes@fedoraproject.org> - 3.17.4-200
 - Linux v3.17.4
 - disable early microcode load (rhbz 1163520)
